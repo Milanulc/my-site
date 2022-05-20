@@ -22,16 +22,31 @@ console.log()
 clock()
 
 
-function newclock(){
-    setInterval(()=>{
-    const time = document.querySelector('.display #time');
-    let date = new Date();
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let seconds = date.getSeconds();
+function newclock() {
+    setInterval(() => {
+        const time = document.querySelector('.display #time');
 
-        time.textContent = hours  + ":" + minutes+ ":" + seconds;
+        let date = new Date();
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let seconds = date.getSeconds();
+        let newDate = date.toLocaleDateString();
+        let fullTime = date.toLocaleTimeString();
+
+        //time.textContent = hours + ":" + minutes + ":" + seconds + " " + newDate;
+        time.textContent = fullTime + " " + newDate;
     })
 
 }
+
 newclock()
+
+
+
+const button = document.getElementById('btn');
+const dis = document.getElementById('time');
+
+button.onclick = function (){
+    dis.classList.toggle('hidden');
+    
+}
